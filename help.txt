@@ -1,0 +1,16 @@
+# DatabaseName / ModelName (ControllerName)
+users / User
+users_mail_accounts / UsersMailAccount
+users_footprints / UsersFootprint
+companies / Company
+
+# ViewName (FolderName [relativ]) / RouteName
+
+-----
+
+Run DB Seeders:
+php artisan db:seed --class=CreateUserSeeder && \
+php artisan db:seed --class=CreateCompanySeeder && \
+php artisan db:seed --class=CreateCompaniesDataTypeSeeder && \
+php artisan db:seed --class=CreateEmailProviderSeeder && \
+php artisan db:seed --class=CreateUsersFootprintSeeder

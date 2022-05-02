@@ -1,0 +1,99 @@
+@extends('layouts.base')
+
+@section('body')
+  <div class="flex md:flex-row-reverse flex-wrap">
+    {{-- @include('layouts.navigation') --}}
+    {{-- @livewire('layouts.navigation') --}}
+
+    <div class="bg-gray-100 w-full bg-white md:pl-48">
+
+      @isset($header)
+      <!-- Page Heading -->
+      <header class="bg-white">
+          <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+              {{ $header }}
+          </div>
+      </header>
+      @endisset
+
+      <!--Main Content-->
+      <main class="container bg-gray-100 pt-16 px-6 mx-auto">
+        @yield('content')
+
+        @isset($slot)
+          {{ $slot }}
+        @endisset   
+      </main>
+    </div>
+
+    <!--Sidebar-->
+    <div class="w-full md:w-48 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
+      <div class="md:relative mx-auto md:h-full">
+        {{-- @include('layouts.navigation') --}}
+        {{-- @livewire('layouts.navigation') --}}
+        <div class="flex items-center md:flex-col md:h-full">
+        <div class="flex-1">
+          <ul class="list-reset flex flex-row  md:flex-col text-center md:text-left">
+            <li class="mr-3 flex-1">
+                <a href="{{ route('dashboard') }}" class="flex md:flex-row flex-col items-center py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+                  <svg class="h-6 w-6 md:mr-3 text-gray-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                  <span class="block md:inline-block pb-1 md:pb-0 text-xs md:text-base text-gray-400">Dashboard</span>
+                </a>
+            </li>
+            <li class="mr-3 flex-1">
+                <a href="{{ route('footprints') }}" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+                <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Footprints</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex text-center md:text-left mx-auto md:mt-auto md:mb-2">
+          <x-dropdown align="top" width="48">
+              <x-slot name="trigger">
+                  <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                      <div>{{ Auth::user()->name }}</div>
+
+                      <div class="ml-1">
+                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                      </div>
+                  </button>
+              </x-slot>
+
+              <x-slot name="content">
+
+                  <x-dropdown-link :href="route('profile.show')">
+                      {{ __('My Profile') }}
+                  </x-dropdown-link>
+
+                  <!-- Authentication -->
+                  <form method="POST" action="{{ route('logout') }}">
+                      @csrf
+
+                      <x-dropdown-link :href="route('logout')"
+                              onclick="event.preventDefault();
+                                          this.closest('form').submit();">
+                          {{ __('Log Out') }}
+                      </x-dropdown-link>
+                  </form>
+              </x-slot>
+          </x-dropdown>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+@endsection

@@ -1,0 +1,47 @@
+<div class="container">
+  
+    <div id="" class="swiper_with_tab swiper-container">
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Conservative Tab</div>
+          <div class="swiper-slide">Balanced Tab</div>
+          <div class="swiper-slide">Growth Tab</div>
+        </div>
+    </div>
+
+</div>
+
+@push('styles')
+    <style>
+    </style>    
+@endpush
+
+@push('scripts')
+    <script>
+        var swipertabsName = ['Conservative', 'Balanced', 'Growth']
+        var mySwiper = new Swiper ('#footprints_tabs', {
+            // If we need pagination
+            loop: true,
+            pagination: {
+            el: '.swiper-pagination',
+                    clickable: true,
+                
+                renderBullet: function (index, className) {
+                    if ( index === (swipertabsName.length - 1) ) {
+                        return	'<span class="' + className + '">'
+                                + swipertabsName[index] + '</span>'
+                                + '<div class="active-mark "></div>';
+                }
+                return '<span class="' + className + '">' + (swipertabsName[index]) + '</span>';
+                },
+            },
+            // Navigation arrows
+            // navigation: {
+            //   nextEl: '.swiper-button-next',
+            //   prevEl: '.swiper-button-prev',
+            // },
+        });
+
+    </script>
+@endpush

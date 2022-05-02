@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "styles.css";
+
+
+
+.btn {
+    @apply rounded tracking-wide text-white bg-gray-700 transition-colors duration-200 transform hover:bg-gray-600 focus:outline-none focus:bg-gray-600;
+  }
+
+.header {
+    @apply bg-white;
+  }
+
+.main {
+    @apply bg-white text-black;
+  }
+
+.nav {
+    @apply bg-[#F6F6F6] md:bg-[#F6F6F6] text-black;
+  }
+.card-container {
+  @apply flex relative max-w-md w-full mx-auto overflow-hidden px-6 py-6 md:rounded-lg md:shadow-lg lg:shadow-none lg:border-none dark:bg-gray-800 lg:max-w-6xl;
+}
+.container__items {
+  @apply w-full relative px-6 py-8 md:px-8 lg:w-1/2 bg-white min-w-max max-w-sm;
+}
+.sign-with {
+  @apply flex-center-center mt-4 text-gray-600 transition-colors duration-200 transform border rounded-lg dark:border-gray-700 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-600;
+}
+.login-dash {
+  @apply w-1/5 border-b dark:border-gray-600 lg:w-1/4;
+}
+.register-dash {
+  @apply w-4/5 border-b border-gray-700 dark:border-gray-600;
+}
+.login-caption {
+  @apply text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline;
+}
+.label-style {
+  @apply block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400;
+}
+.forget-password {
+  @apply text-xs text-gray-500 dark:text-gray-400 hover:underline;
+}
+.password-icon {
+  @apply absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5;
+}
+.remember-me {
+  @apply block text-gray-600 dark:text-gray-400 font-bold my-2;
+}
+.remember--me__title {
+  @apply py-2 text-sm text-gray-600 leading-snug;
+}
+.flex-center-between {
+  @apply flex items-center justify-between;
+}
+.flex-center-center {
+  @apply flex items-center justify-center;
+}
+.application-logo {
+  @apply w-20 h-20 fill-current text-gray-500;
+}
+.imap-provider {
+  @apply block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600;
+}
+.agree-label {
+  @apply block text-gray-600 dark:text-gray-200 font-bold my-2;
+}
+.profile-container {
+  @apply max-w-7xl mx-auto sm:px-6 lg:px-8;
+}
+.two-factor-responsive {
+  @apply sm:mx-auto sm:w-full sm:max-w-lg;
+}
+.factor-confirmed {
+  @apply px-4 py-4 two-factor-responsive sm:shadow sm:bg-gray-50 sm:rounded-lg sm:px-10;
+}
+.text-sm-gray-500 {
+  @apply my-2 text-sm text-gray-500;
+}
+.text-blue-uppercase {
+  @apply mb-4 font-semibold text-blue-400 uppercase;
+}
+.border-gray-rounded {
+  @apply px-6 py-4 border border-gray-300 rounded;
+}
+.recovery-qr-code {
+  @apply text-blue-600 transition duration-150 ease-in-out hover:text-blue-400 focus:outline-none focus:underline;
+}
+.flex-end-pt4 {
+  @apply flex justify-end pt-4;
+}
+.recovery-btn {
+  @apply flex justify-center w-1/2 py-2 text-white transition duration-300 ease-in-out bg-blue-500 border border-blue-600 rounded-md hover:bg-blue-600;
+}
+.code-input {
+  @apply w-full px-3 py-2 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:border-blue-300;
+}
+.update-settings {
+  @apply mb-2 font-semibold text-blue-400 uppercase;
+}
+.update-container {
+  @apply px-4 py-2 sm:shadow sm:bg-gray-50 sm:rounded-lg sm:px-10;
+}
+.provider-imap-srv {
+  @apply w-full px-3 py-2 transition duration-150 ease-in-out appearance-none focus:outline-none;
+}
+.password-update-input {
+  @apply w-full px-3 py-2 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:border-blue-300;
+}
+.password-update-container {
+  @apply px-4 py-4 sm:shadow sm:bg-gray-50 sm:rounded-lg sm:px-10;
+}

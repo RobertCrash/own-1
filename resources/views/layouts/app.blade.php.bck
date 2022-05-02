@@ -1,0 +1,171 @@
+@extends('layouts.base')
+
+@section('body')
+  <div class="flex md:flex-row-reverse flex-wrap bg-white">
+    {{-- @include('layouts.navigation') --}}
+    {{-- @livewire('layouts.navigation') --}}
+
+    <div class="w-full h-screen bg-white md:pl-48">
+
+      @isset($header)
+      <!-- Page Heading -->
+      <header class="header fixed w-full">
+          <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+              {{ $header }}
+          </div>
+      </header>
+      @endisset
+
+      <!--Main Content-->
+      <main class="main container w-full pt-16 px-6 mx-auto">
+        @yield('content')
+
+        @isset($slot)
+          {{ $slot }}
+        @endisset   
+      </main>
+    </div>
+
+    <!--Sidebar-->
+    <div class="nav w-full md:w-48 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen">
+      <div class="md:relative mx-auto md:h-full">
+        {{-- @include('layouts.navigation') --}}
+        {{-- @livewire('layouts.navigation') --}}
+
+        
+        <div class="flex flex-row items-center justify-between md:flex-col md:h-full">
+        <div class="flex-1">
+          <ul class="list-reset flex flex-row align-left md:flex-col text-center md:text-left">
+            <li class="mr-3 flex-1 w-full">
+                <a href="{{ route('dashboard') }}" class="flex md:flex-row flex-col items-center py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline rounded hover:bg-gray-200 {{ request()->routeIs('dashboard') ? 'bg-gray-200' : ''  }}">
+                  <svg class="h-6 w-6 md:mr-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                  <span class="block md:inline-block pb-1 md:pb-0 text-xs md:text-base">Dashboard</span>
+                </a>
+            </li>
+            <li class="mr-3 flex-1 w-full">
+              <a href="{{ route('footprints') }}" class="flex md:flex-row flex-col items-center py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline rounded hover:bg-gray-200 {{ request()->routeIs('footprints') ? 'bg-gray-200' : ''  }}">
+                <svg class="fill-current h-6 w-6 md:mr-3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 512 512"
+                  stroke="currentColor">
+                  <g id="XMLID_1507_">
+                    <circle id="XMLID_2979_" fill-rule="evenodd" cx="58.132" cy="58.132" r="30.33"/>
+                    <circle id="XMLID_2975_" fill-rule="evenodd" cx="58.132" cy="411.978" r="30.33"/>
+                    <circle id="XMLID_2971_" fill-rule="evenodd" cx="401.868" cy="128.901" r="30.33"/>
+                    <circle id="XMLID_2967_" fill-rule="evenodd" cx="280.549" cy="422.088" r="30.33"/>
+                    <circle id="XMLID_2944_" fill-rule="evenodd" cx="270.44" cy="37.912" r="30.33"/>
+                    <g id="XMLID_814_">
+                      <path id="XMLID_2962_" fill-rule="evenodd" d="M159.231,207.253H58.132c-4.188,0-7.582-3.394-7.582-7.582V88.462
+                        c0-4.188,3.395-7.582,7.582-7.582s7.582,3.394,7.582,7.582v103.626h93.516c4.188,0,7.582,3.394,7.582,7.582
+                        C166.813,203.858,163.418,207.253,159.231,207.253z"/>
+                    </g>
+                    <g id="XMLID_1648_">
+                      <path id="XMLID_1665_" fill-rule="evenodd" d="M58.132,96.044c20.905,0,37.912-17.007,37.912-37.912S79.037,20.22,58.132,20.22
+                        S20.22,37.227,20.22,58.132S37.227,96.044,58.132,96.044z M58.132,35.385c12.543,0,22.747,10.205,22.747,22.747
+                        S70.675,80.879,58.132,80.879S35.385,70.674,35.385,58.132S45.589,35.385,58.132,35.385z"/>
+                      <path id="XMLID_1699_" fill-rule="evenodd" d="M149.121,247.692c4.188,0,7.582-3.394,7.582-7.582V45.495h76.587
+                        c3.522,17.284,18.84,30.33,37.149,30.33c20.905,0,37.912-17.007,37.912-37.912S291.345,0,270.44,0
+                        c-18.309,0-33.627,13.046-37.149,30.33h-84.17c-4.188,0-7.582,3.394-7.582,7.582V240.11
+                        C141.538,244.298,144.933,247.692,149.121,247.692z M270.44,15.165c12.543,0,22.747,10.205,22.747,22.747
+                        s-10.204,22.747-22.747,22.747c-12.543,0-22.747-10.205-22.747-22.747S257.896,15.165,270.44,15.165z"/>
+                      <path id="XMLID_1702_" fill-rule="evenodd" d="M189.56,343.736c-4.188,0-7.582,3.394-7.582,7.582v53.077H95.281
+                        c-3.522-17.284-18.84-30.33-37.149-30.33c-20.905,0-37.912,17.007-37.912,37.912s17.007,37.912,37.912,37.912
+                        c18.309,0,33.627-13.046,37.149-30.33h94.279c4.188,0,7.582-3.394,7.582-7.582v-60.659
+                        C197.143,347.131,193.748,343.736,189.56,343.736z M58.132,434.725c-12.543,0-22.747-10.205-22.747-22.747
+                        c0-12.543,10.204-22.747,22.747-22.747s22.747,10.205,22.747,22.747C80.879,424.521,70.675,434.725,58.132,434.725z"/>
+                      <path id="XMLID_1705_" fill-rule="evenodd" d="M381.648,283.077h-60.659c-4.188,0-7.582,3.394-7.582,7.582
+                        c0,4.188,3.395,7.582,7.582,7.582h53.077v116.264h-56.367c-3.522-17.284-18.84-30.33-37.149-30.33
+                        c-20.905,0-37.912,17.007-37.912,37.912S259.645,460,280.549,460c18.309,0,33.627-13.046,37.149-30.33h63.95
+                        c4.188,0,7.582-3.394,7.582-7.582V290.659C389.231,286.471,385.836,283.077,381.648,283.077z M280.549,444.835
+                        c-12.543,0-22.747-10.205-22.747-22.747c0-12.543,10.204-22.747,22.747-22.747c12.543,0,22.747,10.205,22.747,22.747
+                        C303.297,434.63,293.093,444.835,280.549,444.835z"/>
+                      <path id="XMLID_1708_" fill-rule="evenodd" d="M310.879,192.088c-4.188,0-7.582,3.394-7.582,7.582
+                        c0,4.188,3.395,7.582,7.582,7.582h90.989c4.188,0,7.582-3.394,7.582-7.582v-33.62c17.284-3.522,30.33-18.84,30.33-37.149
+                        c0-20.905-17.007-37.912-37.912-37.912s-37.912,17.007-37.912,37.912c0,18.309,13.046,33.627,30.33,37.149v26.038H310.879z
+                         M379.121,128.901c0-12.543,10.204-22.747,22.747-22.747c12.543,0,22.747,10.205,22.747,22.747s-10.204,22.747-22.747,22.747
+                        C389.325,151.648,379.121,141.444,379.121,128.901z"/>
+                      <path id="XMLID_1709_" fill-rule="evenodd" d="M40.44,290.659c0,4.188,3.395,7.582,7.582,7.582h90.989
+                        c4.188,0,7.582-3.394,7.582-7.582c0-4.188-3.395-7.582-7.582-7.582H48.022C43.834,283.077,40.44,286.471,40.44,290.659z"/>
+                      <path id="XMLID_1710_" fill-rule="evenodd" d="M432.198,252.747H331.099c-4.188,0-7.582,3.394-7.582,7.582
+                        c0,4.188,3.395,7.582,7.582,7.582h101.099c4.188,0,7.582-3.394,7.582-7.582C439.78,256.142,436.385,252.747,432.198,252.747z"/>
+                    </g>
+                    <g id="XMLID_525_">
+                      <path id="XMLID_2018_" fill-rule="evenodd" d="M275.688,230.543v-37.234c0-25.233-20.455-45.688-45.688-45.688
+                        s-45.688,20.455-45.688,45.688v37.234h-35.845v-40.329c0-45.029,36.503-81.532,81.532-81.532s81.532,36.503,81.532,81.532v40.329
+                        H275.688z"/>
+                    </g>
+                    <g id="XMLID_524_">
+                      <path id="XMLID_2586_" fill-rule="evenodd" d="M314.209,363.169H145.791c-16.534,0-29.937-13.403-29.937-29.937V230.543h228.29
+                        v102.689C344.145,349.766,330.742,363.169,314.209,363.169z"/>
+                    </g>
+                    <path id="XMLID_2022_" style="opacity:0.49;fill:#000000;" d="M320.989,230.543v80.4c0,16.715-13.55,30.266-30.266,30.266H122.964
+                      c-2.097,0-4.145-0.214-6.122-0.62c3.401,12.993,15.219,22.58,29.278,22.58H313.88c16.715,0,30.266-13.55,30.266-30.266v-102.36
+                      L320.989,230.543z"/>
+                    <g id="XMLID_523_">
+                      <path id="XMLID_2956_" fill-rule="evenodd" d="M230,320.745c-4.188,0-7.582-3.394-7.582-7.582v-32.613
+                        c0-4.188,3.395-7.582,7.582-7.582s7.582,3.394,7.582,7.582v32.613C237.582,317.351,234.188,320.745,230,320.745z"/>
+                    </g>
+                  </g>
+                </svg>
+                <span class="block md:inline-block pb-1 md:pb-0 text-xs md:text-base">Footprintsssss</span>
+              </a>
+
+            </li>
+          </ul>
+        </div>
+        <div class="text-center md:text-left mx-auto md:w-full md:mt-auto md:mb-2">
+          <div class="block md:hidden w-full">
+            <span class="block md:inline-block pb-1 md:pb-0 text-xs md:text-base">MORE</span>
+          </div>
+          <div class="hidden md:block w-full" x-data="{open: false}">
+            <div @click="open = !open" class="flex items-center justify-between hover:bg-gray-800 hover:text-white cursor-pointer py-2.5 px-4 rounded">
+                <div class="flex items-center space-x-2  w-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    <span>{{ Auth::user()->name }}</span>
+                </div>
+                <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style=""><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+                <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>    
+            </div>
+            <div x-show="open" class="text-sm border-l-2 border-gray-800 mx-6 my-2.5 px-2.5 flex flex-col gap-y-1" style="">
+                <a href="#" class="block py-2 px-4 hover:bg-gray-800 hover:text-white rounded">
+                    Categories
+                </a>
+                <a href="#" class="block py-2 px-4 hover:bg-gray-800 hover:text-white rounded">
+                    Courses
+                </a>
+                <a href="#" class="block py-2 px-4 hover:bg-gray-800 hover:text-white rounded">
+                    Instruction
+                </a>
+                <!-- Authentication -->
+                <div class="block py-2 px-4 hover:bg-gray-800 hover:text-white rounded">
+                <form method="POST" action="{{ route('logout') }}" class="hover:bg-gray-800 hover:text-white">
+                  @csrf
+
+                  <x-dropdown-link :href="route('logout')" class="hover:bg-gray-800 hover:text-white"
+                          onclick="event.preventDefault();
+                                      this.closest('form').submit();">
+                      Logout
+                  </x-dropdown-link>
+                </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+@endsection
